@@ -37,6 +37,11 @@ public class LevelAdapter extends RecyclerView.Adapter<LevelAdapter.LevelHolder>
         this.list.addAll(listM);
         notifyDataSetChanged();
     }
+    @SuppressLint("NotifyDataSetChanged")
+    public void addData(List<GameModel> list){
+        this.list = list;
+        notifyDataSetChanged();
+    }
 
     @NonNull
     @Override
@@ -63,11 +68,11 @@ public class LevelAdapter extends RecyclerView.Adapter<LevelAdapter.LevelHolder>
             tvLevel = itemView.findViewById(R.id.tv_level);
         }
 
-        public void onBind(final GameModel gameModel) {
+        public void onBind(GameModel gameModel) {
             tvLevel.setText(gameModel.getLevel());
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v) {
+                public void onClick(View view) {
                     onItemClickListener.onItemClick(gameModel);
                 }
             });

@@ -4,9 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/USER/AndroidStudioProjects/StudentsGuess/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/StudentsGuess/app/src/main/res/layout/fargment_game.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/StudentsGuess/app/src/main/res/layout/fargment_level.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/StudentsGuess/app/src/main/res/layout/fragment_game.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/StudentsGuess/app/src/main/res/layout/fragment_levels.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/StudentsGuess/app/src/main/res/layout/fragment_start.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/StudentsGuess/app/src/main/res/layout/level_holder.xml" value="0.20416666666666666" />
       </map>
     </option>

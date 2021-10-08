@@ -1,31 +1,24 @@
 package com.example.studentsguess;
 
-import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
 import com.bumptech.glide.Glide;
-import com.example.studentsguess.data.GameClient;
 import com.example.studentsguess.data.GameModel;
 
-import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.List;
-
-
 public class GameFragment extends Fragment {
-    ImageView imageOne, imageTwo, imageThree, imageFour;
+    ImageView imageOne,imageTwo,imageThree,imageFour;
+    TextView tvTitle;
     GameModel gameModel;
-    private List<GameModel> gameList = new ArrayList<>();
-    int position;
 
 
     @Override
@@ -33,32 +26,30 @@ public class GameFragment extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        GameFragment fragment = new GameFragment();
-        Bundle bundle = new Bundle();
-        bundle.getSerializable("model");
-        if (getArguments() != null){
-            fragment.setArguments(bundle);
-
-        }
         return inflater.inflate(R.layout.fragment_game, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        tvTitle = view.findViewById(R.id.tv_title);
         imageOne = view.findViewById(R.id.image_one);
         imageTwo = view.findViewById(R.id.image_two);
         imageThree = view.findViewById(R.id.image_three);
         imageFour = view.findViewById(R.id.image_four);
+        dataFromLevelFragment();
+    }
 
-        if (gameModel != null) {
-            Glide.with(imageOne).load(gameModel.getImageAddressFirst()).circleCrop().into(imageOne);
-            Log.e("TAG", "onViewCreated: " + gameModel.getImageAddressFirst());
-        }
-
+    private void dataFromLevelFragment() {
+        assert getArguments() != null;
+        gameModel = (GameModel) getArguments().getSerializable("model");
+        tvTitle.setText(gameModel.getLevel());
+        Glide.with(imageOne).load(gameModel.getImageAddressFirst()).into(imageOne);
+        Glide.with(imageTwo).load(gameModel.getImageAddressSecond()).into(imageTwo);
+        Glide.with(imageThree).load(gameModel.getImageAddressThird()).into(imageThree);
+        Glide.with(imageFour).load(gameModel.getImageAddressFour()).into(imageFour);
     }
 }
